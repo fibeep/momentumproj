@@ -21,13 +21,22 @@
       <p>
       I'm your cool calm crazy collision!
       </p>
-      <input id="in_mass1" value="" type="number">
-      <input id="in_mass2" value="" type="number">
-      <input id="in_velocity1" value="" type="number">
-      <input id="in_velocity2" value="" type="number">
-      <h2 id="output-vF" value="" type="number">
-        <button id ="output-vF" onclick="Collision()">Final Velocity</button>
-      </h2>
+      <form>
+        <p>Mass 1</p>
+        <input id="in_mass1" value="50" type="range">*
+        <p>Velocity 1</p>
+        <input id="in_velocity1" value="50" type="range"> +
+
+        <p>Mass 2</p>
+        <input id="in_mass2" value="50" type="range">*
+        <p>Velocity 2</p>
+        <input id="in_velocity2" value="50" type="range">=
+      
+        <h2 id="output-vF" value="" type="number">
+          <button id ="output-vF" onclick="Collision()">Final Velocity</button>
+        </h2>
+        / in_mass1 + in_mass2 = <output type="net" for="output-vF in_mass1 in_velocity1 in_mass2 in_velocity2"></output>
+      </form>
     <script href="code.js"></script>    <script href="code.js"></script>
   </body>
 </html>
