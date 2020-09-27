@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+  <title>Collision Test</title>
   <head>
       <link rel="stylesheet" href="styles.css">
       <script src="p5.js"></script>
@@ -15,12 +15,19 @@
       <script src="http://blizardjs.ueuo.com/blizard.js"></script>
   
     </head>
-    
+     
   <body>
     <h1>Barely A Collision(Test)</h1>
-    
-    <p>
+      <p>
       I'm your cool calm crazy collision!
-    </p>
+      </p>
+      <input id="in_mass1" value="" type="number">
+      <input id="in_mass2" value="" type="number">
+      <input id="in_velocity1" value="" type="number">
+      <input id="in_velocity2" value="" type="number">
+      <h2 id="output-vF" value="" type="number">
+        <button id ="output-vF" onclick="Collision()">Final Velocity</button>
+      </h2>
+    <script href="code.js"></script>    <script href="code.js"></script>
   </body>
 </html>

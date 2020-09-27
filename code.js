@@ -1,40 +1,61 @@
-/* global 
-*  noStroke fill colorMode
-*/
+const display_vF= document.querySelector("#output-vF");
+const display_m1= document.querySelector("#in_mass1");
+const display_m2= document.querySelector("#in_mass2");
+const display_v1= document.querySelector("#in_velocity1");
+const display_v2= document.querySelector("#in_velocity1");
 
-let m1 = parseInt(prompt("Pleas input first mass"));
-let m2 = parseInt(prompt("Please input second mass"));
-let v1 = 0 + parseInt(prompt("Please input first velocity"));
-let v2 = 500 - parseInt(prompt("Please input second velocity"));
+const h1 = document.querySelector('h1') // selects the h1 tag
+h1.innerHTML = 'Inelastic Collision' // Changes the text content of the tag
 
-let shape1 = rect(10,100,m1,m1);
-let shape2 = rect(290,100,m2,m2);
+const m1 = parseInt(prompt("Pleas input first mass"));
+const m2 = parseInt(prompt("Please input second mass"));
+const v1 = parseInt(prompt("Please input first velocity"));
+const v2 = parseInt(prompt("Please input second velocity"));
+
+let pos1 = 0;
+let pos2 = 500;
+
+let shape1 = rect(0,100,m1,m1);
+let shape2 = rect(500,100,m2,m2);
 
 function setup() {
+  frameRate(12)
   createCanvas(500, 500);
-  colorMode(HSB, 360, 100, 100);
-  background(90);
+
 }
 
 function draw() {
 
-  //This red shape is coming from the right!
-  //At the moment it stops once it reaches the width divide by 2, which is half of the with
-  if (v1 <= width/2) {
-    rect(v1, 50, m1, m1);
-    v1 += 1;
+  if (pos1 <= pos2) {
+    noStroke();
+    fill(250,0,0);
+    rect(pos1, 50, m1, m1);
+
+    pos1 += v1;
+
   }
 
-  //This blue shape is going to the left!
-  //At the moment it stops once it reaches the width divide by 2, which is half of the with
-  if (v2 >= width/2) {
-    rect(v2, 50, m2, m2);
-    v2 -= 1;
-  }
+  if (pos2 >= pos1) {
+    noStroke();
+    fill(0,0,250);
+    rect(pos2, 50, m2, m2);
+
+    pos2 -= v2;
+
+    }
+
 }
 
-function Collision(m1,v1,m2,v2) {
-    vF = ((m1 * v1) + (m2 * v2)) / (m1 + m2)
-    return vF
+function Collision() {
+  const vF = (m1 * v1 + m2 * v2) / (m1 + m2);
+
+  display_vF.innerHTML = vF;
+  display_m1.innerHTML = m1;
+  display_m2.innerHTML = m2;
+  display_v1.innerHTML = v1;
+  display_v2.innerHTML = v2;
+
+  console.log(vF);
+  
 }
 
