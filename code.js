@@ -1,31 +1,27 @@
-const display_vF= document.querySelector("#output-vF");
 const display_m1= document.querySelector("#in_mass1");
 const display_m2= document.querySelector("#in_mass2");
 const display_v1= document.querySelector("#in_velocity1");
 const display_v2= document.querySelector("#in_velocity1");
+const display_vF= document.querySelector("#output-vF");
+
+const m1 = parseInt(prompt("enter mass 1"));
+const m2 = parseInt(prompt("enter mass 2"));
+const v1 = parseInt(prompt("enter velocity 1"));
+const v2 = parseInt(prompt("enter velocity 2"));
 
 const h1 = document.querySelector('h1') // selects the h1 tag
 h1.innerHTML = 'Inelastic Collision' // Changes the text content of the tag
 
-const m1 = parseInt(prompt("Pleas input first mass"));
-const m2 = parseInt(prompt("Please input second mass"));
-const v1 = parseInt(prompt("Please input first velocity"));
-const v2 = parseInt(prompt("Please input second velocity"));
+var pos1 = 0;
+var pos2 = 500;
 
-let pos1 = 0;
-let pos2 = 500;
+var p1 = 0;
+var p2 = 500;
+var m3 = m1 + m2;
 
-let p1 = 0;
-let p2 = 500;
-let m3 = m1 + m2;
-
-let shape1 = rect(pos1,50,m1,m1);
+var shape1 = rect(pos1,50,m1,m1);
 let shape2 = rect(pos2,50,m2,m2);
 
-display_m1.innerHTML = m1;
-display_m2.innerHTML = m2;
-display_v1.innerHTML = v1;
-display_v2.innerHTML = v2;
 
 
 function setup() {
@@ -55,24 +51,35 @@ function draw() {
     pos2 -= v2;
     p2 -= v2 * 1;
 
-    }
 
-  if (pos1 >= pos2 && pos2 <= pos1) {
+    } else if (pos1 >= pos2 && pos2 <= pos1) {
     noStroke();
     fill(250,250,100);
     rect(pos1, 50, m1, m1);
     rect(pos2, 50, m2, m2);
 
+    Collision();
+  
     }
   
 }
 
 function Collision() {
+
   const vF = (m1 * v1 + m2 * v2) / (m1 + m2);
 
-  display_vF.innerHTML = vF;
+  const display_m1= document.querySelector("#identity_1");
+  const display_m2= document.querySelector("#identity_2");
+  const display_v1= document.querySelector("#identity_3");
+  const display_v2= document.querySelector("#identity_4");
+
+  display_m1.innerHTML = `\n  mass 1:     ${m1}`;
+  display_m2.innerHTML = `\n  mass 2:     ${m2}`;
+  display_v1.innerHTML = `\n  velocity 1: ${v1}`;
+  display_v2.innerHTML = `\n  velocity 2: ${v2}`;
+
+  display_vF.innerHTML = vF.toFixed(2);
 
   console.log(vF);
-  
 }
 
