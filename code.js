@@ -55,8 +55,8 @@ function draw() {
     } else if (pos1 >= pos2 && pos2 <= pos1) {
     noStroke();
     fill(250,250,100);
-    rect(pos1, 50, m1 + m2, m1 + m2);
-    rect(pos2, 50, m2 + m1, m2 + m1);
+    rect(pos1, 50, m1 + m2, (m1 + m2));
+    rect(pos2, 50, m2 + m1, (m2 + m1));
 
     Collision();
   
